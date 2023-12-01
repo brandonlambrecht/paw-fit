@@ -6,6 +6,9 @@ router.get('/', async (req, res) => {
 
     const userData = await User.findByPk(req.session.user_id, { raw: true })
 
+    // get info
+
+
 
     res.render('dashboard', {
       userData,

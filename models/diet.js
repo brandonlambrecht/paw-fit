@@ -25,7 +25,14 @@ Diet.init(
         food_allergies: {
             type: DataTypes.STRING,
             allowNull: false,
-        }
+        },
+        animal_id: {
+            type: DataTypes.INTEGER,
+            references: {
+                model: 'Animal',
+                key: 'id',
+            },
+        },
     },
     {
         sequelize,

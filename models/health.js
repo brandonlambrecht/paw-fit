@@ -1,4 +1,4 @@
-const { Model, DataTypes, STRING } = require('sequelize');
+const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
 class Health extends Model {}
@@ -22,6 +22,13 @@ Health.init(
         health_diseases: {
             type: DataTypes.STRING,
             allowNull: false,
+        },
+        animal_id: {
+            type: DataTypes.INTEGER,
+            references: {
+                model: 'Animal',
+                key: 'id',
+            },
         },
     },
     {
