@@ -1,6 +1,6 @@
-const { Animal } = require('../models/animal');
+const { Animal } = require('../models/');
 
-const AnimalData = [
+const animalData = [
     {
         pet_name: 'Missie',
         animal_type: 'Cat',
@@ -39,6 +39,6 @@ const AnimalData = [
     },
 ];
 
-const seedAnimals = () => Animal.bulkCreate(AnimalData);
+const seedAnimals = () => Animal.bulkCreate(animalData);
 
 module.exports = seedAnimals;
