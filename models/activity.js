@@ -19,7 +19,7 @@ Activity.init(
             type: DataTypes.STRING,
             allowNull: false,
         },
-        avg_sleep_day {
+        avg_sleep_day: {
             type: DataTypes.INTEGER,
             allowNull: false,
         },
