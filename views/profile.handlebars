@@ -1,4 +1,77 @@
 <h2>
   Hello
-  {{first_name}}, this is your profile page. Please change me or remove me.
+  {{first_name}}, welcome to {{animal.pet_name}}'s profile, here you will find health, diet, activity, and record information for your pet.
 </h2>
+
+
+<div class="new-health">
+    <button class="new-health-btn">Add Pet Health History</button>
+</div>
+
+
+<div class="new-diet">
+    <button class="new-diet-btn">Add Pet Diet</button>
+</div>
+
+
+<form class="diet-form">
+  <label for="amount">Amount of Food consumed by the pet: </label><br>
+  <input type="text" id="amount" name="amount"><br>
+
+  <label for="favorite">Favorite foods: </label><br>
+  <input type="text" id="favorite" name="favorite"><br>
+
+  <label for="allergies">Does the pet have any allergies: </label><br>
+  <input type="text" id="allergies" name="allergies"><br>
+
+  <input type="submit" value="Submit">
+
+</form>
+
+
+<form class="health-form">
+  <label for="health">vaccination: </label><br>
+  <input type="text" id="health" name="health"><br>
+
+  <label for="neuter">neuter or spay: </label><br>
+  <input type="text" id="neuter" name="neuter"><br>
+
+  <label for="disease">what kind of illnesses does the animal have: </label><br>
+  <input type="text" id="disease" name="disease"><br>
+
+  <input type="submit" value="Submit">
+
+</form>
+
+
+
+Need to add animal, diet, health
+
+<div>
+  {{#each userData.Animals as |animal|}}
+  <div>
+    Name: {{animal.pet_name}}<br>
+    Type: {{animal.animal_type}}<br>
+    Gender: {{animal.pet_gender}}<br>
+    Age: {{animal.pet_age}}<br>
+    Color: {{animal.pet_color}}<br>
+    Weight: {{animal.pet_weight}}<br>
+    Breed: {{animal.pet_breed}}<br>
+    <br>
+  </div>
+{{/each}}
+</div>
+
+{{#each userData.Healths as |health|}}
+  <div>
+    vaccination: {{health.pet_vac}}<br>
+    Neuter: {{health.pet_neuter}}<br>
+    Disease: {{health.pet_disease}}<br>
+    <br>
+  </div>
+{{/each}}
+
+<script src="/js/profile.js"></script>
+<script src="/js/profileDiet.js"></script>
+
+

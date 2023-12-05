@@ -1,1 +1,48 @@
-<h3>Dashboard Page</h3>
+<h3>Welcome {{userData.first_name}} to Paw Fit, your pets care is in good hands</h3>
+
+<div class="new-pet">
+    <button class="new-pet-btn">Add New Pet</button>
+</div>
+
+
+
+<form class="pet-form">
+  <label for="pname">Pet name:</label><br>
+  <input type="text" id="pname" name="pname"><br>
+
+  <label for="type">Pet Type:</label><br>
+  <input type="text" id="type" name="type"><br>
+
+  <label for="type">Pet Age:</label><br>
+  <input type="number" id="age" name="age"><br>
+
+  <label for="gender">Gender:</label><br>
+  <input type="text" id="gender" name="gender"><br>
+
+  <label for="color">Color:</label><br>
+  <input type="text" id="color" name="color"><br>
+
+  <label for="weight">Weight:</label><br>
+  <input type="number" id="weight" name="weight"><br>
+
+  <label for="breed">Breed:</label><br>
+  <input type="text" id="breed" name="breed"><br>
+  <input type="submit" value="Submit">
+
+</form>
+
+
+
+<h2>Current Pet Snapshot</h2>
+{{#each userData.Animals as |animal|}}
+  <div>
+    Name: {{animal.pet_name}}<br>
+    Age: {{animal.pet_age}}<br>
+    Type: {{animal.animal_type}}<br>
+    Gender: {{animal.pet_gender}}<br>
+    Breed: {{animal.pet_breed}}<br>
+    <br>
+  </div>
+{{/each}}
+
+<script src="/js/dashboard.js"></script>
