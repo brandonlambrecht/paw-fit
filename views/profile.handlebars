@@ -4,9 +4,29 @@
 </h2>
 
 
-{{!-- Need to add animal, diet, health --}}
+<div class="new-health">
+    <button class="new-health-btn">Add Pet Health History</button>
+</div>
 
-{{!-- <div>
+
+
+<form class="health-form">
+  <label for="health">vaccination: </label><br>
+  <input type="text" id="health" name="health"><br>
+
+  <label for="neuter">neuter or spay: </label><br>
+  <input type="text" id="neuter" name="neuter"><br>
+
+  <label for="disease">what kind of illnesses does the animal have: </label><br>
+  <input type="text" id="disease" name="disease"><br>
+
+  <input type="submit" value="Submit">
+
+</form>
+
+Need to add animal, diet, health
+
+<div>
   {{#each userData.Animals as |animal|}}
   <div>
     Name: {{animal.pet_name}}<br>
@@ -19,4 +39,15 @@
     <br>
   </div>
 {{/each}}
-</div> --}}
+</div>
+
+{{#each userData.Healths as |health|}}
+  <div>
+    vaccination: {{health.pet_vac}}<br>
+    Neuter: {{health.pet_neuter}}<br>
+    Disease: {{health.pet_disease}}<br>
+    <br>
+  </div>
+{{/each}}
+
+<script src="/js/profile.js"></script>
