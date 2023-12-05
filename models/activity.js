@@ -1,9 +1,9 @@
-const { Model, DataTypes, STRING } = require('sequelize');
+const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Diet extends Model {}
+class Activity  extends  Model {}
 
-Diet.init(
+Activity.init(
     {
         id: {
             type: DataTypes.INTEGER,
@@ -11,19 +11,16 @@ Diet.init(
             primaryKey: true,
             autoIncrement: true,
         },
-        food_amount: {
-            type: DataTypes.DECIMAL,
+        active_minutes_day: {
+            type: DataTypes.INTEGER,
             allowNull: false,
-            validator: {
-                isDecimal: true,
-            },
         },
-        food_favorite: {
+        favorite_toy: {
             type: DataTypes.STRING,
             allowNull: false,
         },
-        food_allergies: {
-            type: DataTypes.STRING,
+        avg_sleep_day {
+            type: DataTypes.INTEGER,
             allowNull: false,
         },
         animal_id: {
@@ -39,9 +36,8 @@ Diet.init(
         timestamps: false,
         freezeTableName: true,
         underscored: true,
-        modelName: "Diet",
+        modelName: "Activity",
     }
 );
 
-
-module.exports = Diet;
+module.exports = Activity;
