@@ -1,10 +1,17 @@
-const healthBtn = document.querySelector('.new-health-btn');
+const healthBtns = document.querySelectorAll('.new-health-btn');
 const healthNew = document.querySelector('.new-health');
 const healthForm = document.querySelector('.health-form');
 
-healthBtn.addEventListener('click', addHealthBtn)
+let currentAnimalId = '';
 
-function addHealthBtn () {
+healthBtns.forEach((healthBtn) => {
+    healthBtn.addEventListener('click', addHealthBtn)
+})
+
+
+function addHealthBtn (event) {
+    currentAnimalId = event.target.getAttribute('data-id');
+    console.log(currentAnimalId);
     healthNew.style.display = 'none';
     healthForm.style.display = 'block';
 }
@@ -12,20 +19,25 @@ function addHealthBtn () {
 const HandleHealthForm = async (event) => {
     event.preventDefault();
 
-    const pet_vac = document.querySelector('#health').value.trim();
-    const pet_neuter = document.querySelector('#neuter').value.trim();
-    const pet_disease = document.querySelector('#disease').value.trim();
+    console.log(event.target);
 
-    if (!pet_vac || !pet_neuter || !pet_disease) {
+    const health_vaccination = document.querySelector('#health').value.trim();
+    const health_neuter = document.querySelector('#neuter').value.trim();
+    const health_diseases = document.querySelector('#disease').value.trim();
+
+
+    if (!health_vaccination || !health_neuter || !health_diseases) {
     // showError(loginFormEl, 'Please fill in the information')
         console.log('hit')
         return;
     }
+    console.log('here')
 
     const bodyObj = {
-        pet_vac,
-        pet_neuter,
-        pet_disease
+        health_vaccination,
+        health_neuter,
+        health_diseases,
+        animal_id: currentAnimalId
     }
 
     console.log(bodyObj)

@@ -15,7 +15,7 @@ Health.init(
             type: DataTypes.STRING,
             allowNull: false,
         },
-        health_neurte: {
+        health_neuter: {
             type: DataTypes.STRING,
             allowNull: false,
         },
