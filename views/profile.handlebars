@@ -86,13 +86,13 @@
       </div>
       <div class="tab-pane fade show" id="diet-{{animal.id}}" role="tabpanel" aria-labelledby="diet-tab">
         <h3>Diet Data</h3>
-        <button data-id="{{animal.id}}" class="new-health-btn">Add Health Record</button>
+        <button data-id="{{animal.id}}" class="new-diet-btn">Add Diet record</button>
 
-        {{#each animal.Health as |health|}}
+        {{#each animal.Diet as |diet|}}
           <div>
-            vaccination: {{health.pet_vac}}<br>
-            Neuter: {{health.pet_neuter}}<br>
-            Disease: {{health.pet_disease}}<br>
+            Amount of Food: {{diet.food_amount}}<br>
+            Favorite Food: {{diet.food_favorite}}<br>
+            Allergies: {{diet.food_allergies}}<br>
             <br>
           </div>
         {{/each}}
