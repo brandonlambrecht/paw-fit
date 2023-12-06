@@ -5,14 +5,14 @@
 </h2>
 
 
-<div class="new-health">
+{{!-- <div class="new-health">
     <button class="new-health-btn">Add Pet Health History</button>
 </div>
 
 
 <div class="new-diet">
     <button class="new-diet-btn">Add Pet Diet</button>
-</div>
+</div> --}}
 
 
 <form class="diet-form">
@@ -29,7 +29,6 @@
 
 </form>
 
-
 <form class="health-form">
   <label for="health">vaccination: </label><br>
   <input type="text" id="health" name="health"><br>
@@ -44,7 +43,6 @@
 
 </form>
 
-
 <div>
   {{#each Animals as |animal|}}
   <div class="card mb-4">
@@ -56,7 +54,7 @@
         <button class="nav-link" id="health-tab" data-bs-toggle="tab" data-bs-target="#health-{{animal.id}}" type="button" role="tab" aria-controls="health" aria-selected="false">Health</button>
       </li>
       <li class="nav-item" role="presentation">
-        <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact-{{animal.id}}" type="button" role="tab" aria-controls="contact" aria-selected="false">Diet</button>
+        <button class="nav-link" id="diet-tab" data-bs-toggle="tab" data-bs-target="#diet-{{animal.id}}" type="button" role="tab" aria-controls="diet" aria-selected="false">Diet</button>
       </li>
       <li class="nav-item" role="presentation">
         <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact-{{animal.id}}" type="button" role="tab" aria-controls="contact" aria-selected="false">Activity</button>
@@ -75,6 +73,21 @@
       </div>
       <div class="tab-pane fade show" id="health-{{animal.id}}" role="tabpanel" aria-labelledby="health-tab">
         <h3>Health Data</h3>
+        <button data-id="{{animal.id}}" class="new-health-btn">Add Health Record</button>
+
+        {{#each animal.Health as |health|}}
+          <div>
+            vaccination: {{health.health_vaccination}}<br>
+            Neuter: {{health.health_neuter}}<br>
+            Disease: {{health.health_diseases}}<br>
+            <br>
+          </div>
+        {{/each}}
+      </div>
+      <div class="tab-pane fade show" id="diet-{{animal.id}}" role="tabpanel" aria-labelledby="diet-tab">
+        <h3>Diet Data</h3>
+        <button data-id="{{animal.id}}" class="new-health-btn">Add Health Record</button>
+
         {{#each animal.Health as |health|}}
           <div>
             vaccination: {{health.pet_vac}}<br>
