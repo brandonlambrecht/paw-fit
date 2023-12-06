@@ -17,8 +17,9 @@ const HandleHealthForm = async (event) => {
     const pet_disease = document.querySelector('#disease').value.trim();
 
     if (!pet_vac || !pet_neuter || !pet_disease) {
-    showError(loginFormEl, 'Please fill in the information')
-    return;
+    // showError(loginFormEl, 'Please fill in the information')
+        console.log('hit')
+        return;
     }
 
     const bodyObj = {
@@ -26,6 +27,8 @@ const HandleHealthForm = async (event) => {
         pet_neuter,
         pet_disease
     }
+
+    console.log(bodyObj)
 
     try {
         const response = await fetch('/api/health', {
@@ -38,14 +41,14 @@ const HandleHealthForm = async (event) => {
             const res = await response.json();
             console.log(res);
             const errorMsg = res.message;
-            showError(healthForm, errorMsg);
+            // showError(healthForm, errorMsg);
             return;
     }
 
-    document.location.replace('/dashboard');
+    // document.location.replace('/dashboard');
     } catch(err) {
         console.log(err);
-        showError(healthForm, 'A login error has ocurred')
+        // showError(healthForm, 'A login error has ocurred')
     }
 };
 
