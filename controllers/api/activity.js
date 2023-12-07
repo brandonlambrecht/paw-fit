@@ -12,7 +12,7 @@ router.post('/', async (req, res) => {
             res.status(200).json(activityData);
         }
     } catch (err) {
-        console.log(err);
+        console.log(err, "error");
         res.status(400).json(err);
     }
 });

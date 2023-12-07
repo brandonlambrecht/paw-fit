@@ -42,10 +42,10 @@
 </form>
 <form class="activity-form">
   <label for="active">Average minutes activity per day</label><br>
-  <input type="text" id="active" name="active"><br>
+  <input type="number" id="active" name="active"><br>
 
     <label for="sleep">Average hours sleep per day</label><br>
-  <input type="text" id="sleep" name="sleep"><br>
+  <input type="number" id="sleep" name="sleep"><br>
 
   <label for="toy">Favorite toy </label><br>
   <input type="text" id="toy" name="toy"><br>
@@ -124,12 +124,12 @@
 
         {{#each animal.Activities as |activity|}}
         <p>hello</p>
-          {{!-- <div>
-            Amount of Food: {{diet.food_amount}}<br>
-            Favorite Food: {{diet.food_favorite}}<br>
-            Allergies: {{diet.food_allergies}}<br>
+          <div>
+            Activity: {{activity.active_minutes_day}}<br>
+            Toy: {{activity.favorite_toy}}<br>
+            Sleep: {{activity.avg_sleep_day}}<br>
             <br>
-          </div> --}}
+          </div>
         {{/each}}
       </div>
 
@@ -141,5 +141,6 @@
 
 <script src="/js/profile.js"></script>
 <script src="/js/profileDiet.js"></script>
+<script src="/js/profileActivity.js"></script>
 
 

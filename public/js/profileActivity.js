@@ -1,15 +1,17 @@
-const activityBtn = document.querySelector(".new-activity-btn")
+const activityBtns = document.querySelectorAll(".new-activity-btn")
 const newActivity = document.querySelector(".new-activity")
 const activityForm = document.querySelector(".activity-form")
 
+let activityAnimalId = '';
 
-activityBtn.addEventListener('click', addActivityBtn)
+activityBtns.forEach((activityBtn) => {
+    activityBtn.addEventListener('click', addActivityBtn)
+})
 
-function addActivityBtn() {
-    
-    newActivity.style.display = "none"
+function addActivityBtn(event) {
+    activityAnimalId = event.target.getAttribute('data-id');
+    // newActivity.style.display = "none"
     activityForm.style.display = "block"
-
 }
 
 const HandleActivityForm = async (event) => {
@@ -17,18 +19,19 @@ const HandleActivityForm = async (event) => {
     // removeAllErrors();
 
     const active_minutes_day  = document.querySelector('#active').value.trim();
-    const favorite_toy = document.querySelector('#sleep').value.trim();
-    const avg_sleep_day = document.querySelector('#toy').value.trim();
+    const avg_sleep_day = document.querySelector('#sleep').value.trim();
+    const favorite_toy = document.querySelector('#toy').value.trim();
 
     if (!active_minutes_day || !favorite_toy || !avg_sleep_day ) {
-    showError(loginFormEl, "Please provide a name,type,gender,color,weight, and breed.")
+    // showError(loginFormEl, "Please provide a name,type,gender,color,weight, and breed.")
     return;
     }
 
     const bodyObj = {
     active_minutes_day,
     favorite_toy,
-    avg_sleep_day
+    avg_sleep_day,
+    animal_id: activityAnimalId
     }
 
     try {
@@ -42,14 +45,14 @@ const HandleActivityForm = async (event) => {
         const res = await response.json();
         console.log(res);
         const errorMsg = res.message;
-        showError(petForm, errorMsg);
+        // showError(petForm, errorMsg);
         return;
     }
 
-    document.location.replace('/dashboard');
+    document.location.reload();
     } catch (err) {
     console.log(err);
-    showError(activityForm, "A login error has ocurred.")
+    // showError(activityForm, "A login error has ocurred.")
     }
 };
 
