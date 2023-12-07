@@ -5,39 +5,50 @@
 </h2>
 
 
-{{!-- <div class="new-health">
-    <button class="new-health-btn">Add Pet Health History</button>
-</div>
-
-
-<div class="new-diet">
-    <button class="new-diet-btn">Add Pet Diet</button>
-</div> --}}
-
-
+{{!-- Diet Form --}}
 <form class="diet-form">
-  <label for="amount">Amount of Food consumed by the pet: </label><br>
+  <label for="amount">Cups of food consumed per day </label><br>
   <input type="number" step="0.5" min="0" id="amount" name="amount"><br>
 
-  <label for="favorite">Favorite foods: </label><br>
+  <label for="favorite">Favorite foods </label><br>
   <input type="text" id="favorite" name="favorite"><br>
 
-  <label for="allergies">Does the pet have any allergies: </label><br>
+  <label for="allergies">List any food allergies </label><br>
   <input type="text" id="allergies" name="allergies"><br>
 
   <input type="submit" value="Submit">
 
 </form>
 
+{{!-- Health Form --}}
 <form class="health-form">
-  <label for="health">vaccination: </label><br>
+  <label for="health">List all vaccinations</label><br>
   <input type="text" id="health" name="health"><br>
 
-  <label for="neuter">neuter or spay: </label><br>
-  <input type="text" id="neuter" name="neuter"><br>
+  <label for="neuter">Neuter,Spay or Neither</label><br>
+  <select type id="neuter" name="neuter"><br>
+    <option value="">Please select from options</option>
+    <option value="Neutered">Neutered</option>
+    <option value="Spayed">Spayed</option>
+    <option value="Neither">Neither</option>
+  </select><br>
 
-  <label for="disease">what kind of illnesses does the animal have: </label><br>
+  <label for="disease">List any illness or disease</label><br>
   <input type="text" id="disease" name="disease"><br>
+
+  <input type="submit" value="Submit">
+
+{{!-- Activity Form --}}
+</form>
+<form class="activity-form">
+  <label for="active">Average minutes activity per day</label><br>
+  <input type="text" id="active" name="active"><br>
+
+    <label for="sleep">Average hours sleep per day</label><br>
+  <input type="text" id="sleep" name="sleep"><br>
+
+  <label for="toy">Favorite toy </label><br>
+  <input type="text" id="toy" name="toy"><br>
 
   <input type="submit" value="Submit">
 
@@ -77,7 +88,7 @@
       </div>
       {{!-- Health Tab --}}
       <div class="tab-pane fade show" id="health-{{animal.id}}" role="tabpanel" aria-labelledby="health-tab">
-        <h3>Health Data</h3>
+        
         <button data-id="{{animal.id}}" class="new-health-btn">Add Health Record</button>
 
         {{#each animal.Health as |health|}}
@@ -92,7 +103,7 @@
 
       {{!-- Diet Tab --}}
       <div class="tab-pane fade show" id="diet-{{animal.id}}" role="tabpanel" aria-labelledby="diet-tab">
-        <h3>Diet Data</h3>
+        
         <button data-id="{{animal.id}}" class="new-diet-btn">Add Diet record</button>
 
         {{#each animal.Diets as |diet|}}
@@ -111,7 +122,7 @@
         <h3>Activity</h3>
         <button data-id="{{animal.id}}" class="new-activity-btn">Add activity record</button>
 
-        {{#each animal.Activitys as |activity|}}
+        {{#each animal.Activities as |activity|}}
         <p>hello</p>
           {{!-- <div>
             Amount of Food: {{diet.food_amount}}<br>
