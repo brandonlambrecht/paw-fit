@@ -9,6 +9,6 @@ router.use('/users', userRoutes);
 router.use('/animals', animalRoutes)
 router.use('/health', healthRouter);
 router.use('/diet', dietRouter)
-router.use('./activity', activityRouter)
+router.use('/activities', activityRouter)
 
 module.exports = router;
