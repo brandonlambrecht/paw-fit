@@ -1,56 +1,83 @@
-<h3>Welcome {{userData.first_name}} to Paw Fit, your pets care is in good hands</h3>
+<div class="row gy-4">
+  <div class="col-12">
+    <h3>Welcome {{userData.first_name}} to Paw Fit, your pets care is in good hands</h3>
+    <div class="new-pet">
+        <button class="new-pet-btn btn btn-primary mt-3">Add New Pet</button>
+    </div>
+  </div>
 
-<div class="new-pet">
-    <button class="new-pet-btn">Add New Pet</button>
+  <div class="col-12">
+    <form class="pet-form">
+      <label for="pname">Pet name:</label><br>
+      <input type="text" id="pname" name="pname"><br>
+
+      <label for="type">Pet Type:</label><br>
+      <select id="type" name="type">
+        <option value="">Please select an animal type</option>
+        <option value="Dog">Dog</option>
+        <option value="Cat">Cat</option>
+      </select><br>
+
+      <label for="type">Pet Age:</label><br>
+      <input type="number" id="age" name="age"><br>
+
+      <label for="gender">Gender:</label><br>
+      <select id="gender" name="gender">
+        <option value="">Select gender</option>
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+    </select><br>
+
+      <label for="color">Color:</label><br>
+      <input type="text" id="color" name="color"><br>
+
+      <label for="weight">Weight:</label><br>
+      <input type="number" id="weight" name="weight"><br>
+
+      <label for="breed">Breed:</label><br>
+      <input type="text" id="breed" name="breed"><br>
+      <input type="submit" value="Submit">
+
+    </form>
+  </div>
+
+  <div class="col-12">
+    <h2>Pet Snapshot</h2>
+    <div class="row">
+    {{#each userData.Animals as |animal|}}
+      <div class="card col-4 m-4">
+        <div class="card-body">
+          <h5 class="card-title">
+            {{animal.pet_name}}
+          </h5>
+          <p>  
+            Age: {{animal.pet_age}}
+          </p>
+          <p>
+            Type: {{animal.animal_type}}          
+          </p>
+          <p>
+            Gender: {{animal.pet_gender}}          
+          </p>
+          <p>
+            Breed: {{animal.pet_breed}}          
+          </p>
+        </div>
+      </div>
+    {{/each}}
+
+    </div>
+
+  </div>
+
 </div>
 
 
 
-<form class="pet-form">
-  <label for="pname">Pet name:</label><br>
-  <input type="text" id="pname" name="pname"><br>
-
-  <label for="type">Pet Type:</label><br>
-  <select id="type" name="type">
-    <option value="">Please select an animal type</option>
-    <option value="Dog">Dog</option>
-    <option value="Cat">Cat</option>
-  </select><br>
-
-  <label for="type">Pet Age:</label><br>
-  <input type="number" id="age" name="age"><br>
-
-  <label for="gender">Gender:</label><br>
-  <select id="gender" name="gender">
-    <option value="">Select gender</option>
-    <option value="Male">Male</option>
-    <option value="Female">Female</option>
-</select><br>
-
-  <label for="color">Color:</label><br>
-  <input type="text" id="color" name="color"><br>
-
-  <label for="weight">Weight:</label><br>
-  <input type="number" id="weight" name="weight"><br>
-
-  <label for="breed">Breed:</label><br>
-  <input type="text" id="breed" name="breed"><br>
-  <input type="submit" value="Submit">
-
-</form>
 
 
 
-<h2>Current Pet Snapshot</h2>
-{{#each userData.Animals as |animal|}}
-  <div>
-    Name: {{animal.pet_name}}<br>
-    Age: {{animal.pet_age}}<br>
-    Type: {{animal.animal_type}}<br>
-    Gender: {{animal.pet_gender}}<br>
-    Breed: {{animal.pet_breed}}<br>
-    <br>
-  </div>
-{{/each}}
+
+
 
 <script src="/js/dashboard.js"></script>
