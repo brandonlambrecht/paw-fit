@@ -7,13 +7,27 @@
     <link rel="stylesheet" href="/css/style.css">
     <title>Paw Fit</title>
   </head>
+<style>
+#logout {
+  border-radius: 8px;
+  color: rgb(39, 128, 39);
+  background-color: white;
+  position: absolute;
+  left: 80%;
+}
 
+  #logout:hover {
+    color: black;
+    transition-duration: 0.4s;
+    box-shadow: 0 6px 8px 0 rgba(0,0,0,0.24), 0 9px 25px 0 rgba(0,0,0,0.19);
+  }
+</style>
   <body>
     <div class=''>
       <header class=''>
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
           <div class="container-fluid">
-            <a class="navbar-brand"  href="/"></a>
+            <a class="navbar-brand"  href="/">
             <img src="/images/pawfit-high-resolution-logo-transparent.png" alt="logoimg" style="height: 75px;">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -34,17 +48,23 @@
                   <a class="nav-link" href="/profile">Profile</a>
                 </li> 
                 {{#if logged_in}}
-                <li class="nav-item" id="logout">
-                  <a class="nav-link">
+                {{!-- <li class="nav-item" id="logout"> --}}
+                  {{!-- <a class="nav-link">
                     Logout
-
+                  </a> --}}
+                  <button class="nav-item" id="logout">
+                    <a class="nav-link" href="/login">
+                    Logout
+                  </button>
                   </a>
-                </li>
+                {{!-- </li> --}}
                 {{/if}}
+                {{!-- <button class='logout' id='logout'>Logout</button> --}}
               </ul>
             </div>
           </div>
-        </nav>
+          {{!-- {{/if}}
+        </nav> --}}
         {{!-- <nav>
           <!-- Conditionally render login or logout links -->
           {{#if logged_in}}
