@@ -16,7 +16,7 @@ router.get('/', async (req, res) => {
     const userData = data.get({plain: true})
 
 
-    console.log(userData);
+    console.log(userData.Animals[0]);
 
     res.render('profile', {
       ...userData,

@@ -12,7 +12,7 @@ healthBtns.forEach((healthBtn) => {
 function addHealthBtn (event) {
     currentAnimalId = event.target.getAttribute('data-id');
     console.log(currentAnimalId);
-    healthNew.style.display = 'none';
+    // healthNew.style.display = 'none';
     healthForm.style.display = 'block';
 }
 
