@@ -4,11 +4,14 @@ const withAuth = require('../../middleware/auth');
 
 const profile = require('./profile-page');
 const dashboard = require('./dashboard-page');
+const calendar = require('./calendar-page');
 const login = require('./login-page');
 
 router.use('/profile', withAuth, profile);
 
 router.use('/dashboard', withAuth, dashboard);
+
+router.use('/calendar', withAuth, calendar);
 
 router.use('/login', login);
 

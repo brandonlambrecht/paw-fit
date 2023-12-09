@@ -51,6 +51,7 @@ const HandleDietForm = async (event) => {
             return;
         }
 
+    document.location.reload();
     } catch(err) {
         console.log(err);
     }
