@@ -1,8 +1,13 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@1,300&family=Merriweather:wght@300&display=swap" rel="stylesheet">
+
+
 <div class="row gy-4">
   <div class="col-12">
     <h3>Welcome {{userData.first_name}} to Paw Fit, your pets care is in good hands</h3>
     <div class="new-pet">
-        <button class="new-pet-btn btn btn-primary mt-3">Add New Pet</button>
+        <button class="new-pet-btn btn btn-success mt-3">Add Pet</button>
     </div>
   </div>
 
@@ -45,22 +50,22 @@
     <h2>Pet Snapshot</h2>
     <div class="row">
     {{#each userData.Animals as |animal|}}
-      <div class="card col-4 m-4">
+      <div class="card col-4 m-4 border border-3 rounded-5 border border-success">
         <div class="card-body">
           <h5 class="card-title">
             {{animal.pet_name}}
           </h5>
           <p>  
-            Age: {{animal.pet_age}}
+            Age : {{animal.pet_age}}
           </p>
           <p>
-            Type: {{animal.animal_type}}          
+            Type : {{animal.animal_type}}          
           </p>
           <p>
-            Gender: {{animal.pet_gender}}          
+            Gender : {{animal.pet_gender}}          
           </p>
           <p>
-            Breed: {{animal.pet_breed}}          
+            Breed : {{animal.pet_breed}}          
           </p>
         </div>
       </div>

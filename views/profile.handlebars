@@ -25,12 +25,12 @@
   <label for="health">List all vaccinations</label><br>
   <input type="text" id="health" name="health"><br>
 
-  <label for="neuter">Neuter,Spay or Neither</label><br>
+  <label for="neuter">Neuter,Spay or None</label><br>
   <select type id="neuter" name="neuter"><br>
     <option value="">Please select from options</option>
     <option value="Neutered">Neutered</option>
     <option value="Spayed">Spayed</option>
-    <option value="Neither">Neither</option>
+    <option value="None">None</option>
   </select><br>
 
   <label for="disease">List any illness or disease</label><br>
@@ -55,6 +55,7 @@
 </form>
 
 <div>
+  
   {{#each Animals as |animal|}}
   <div class="card mb-4">
 
@@ -77,57 +78,104 @@
     <div class="tab-content" id="myTabContent">
       {{!-- General Tab --}}
       <div class="tab-pane fade show active" id="general-{{animal.id}}" role="tabpanel" aria-labelledby="general-tab">
-          {{animal.pet_name}}<br>
-          {{animal.animal_type}}<br>
-          {{animal.pet_gender}}<br>
-          {{animal.pet_age}}<br>
-          {{animal.pet_color}}<br>
-          {{animal.pet_weight}}<br>
-          {{animal.pet_breed}}<br>
-          <br>
+        <div class="card col-11 m-3 border border-3 rounded-5 border border-dark-subtle">
+          <div class="card-body">
+            <p>
+            Name : {{animal.pet_name}}
+            </p>
+            <p>
+            Type : {{animal.animal_type}}
+            </p>
+            <p>
+            Gender : {{animal.pet_gender}}
+            </p>
+            <p>
+            Age : {{animal.pet_age}}
+            </p>
+            <p>
+            Color : {{animal.pet_color}}
+            </p>
+            <p>
+            Weight : {{animal.pet_weight}}
+            </p>
+            <p>
+            Breed : {{animal.pet_breed}}
+            </p>
+            
+          </div>
+        </div>
       </div>
       {{!-- Health Tab --}}
       <div class="tab-pane fade show" id="health-{{animal.id}}" role="tabpanel" aria-labelledby="health-tab">
         
-        <button data-id="{{animal.id}}" class="new-health-btn">Add Health Record</button>
 
+        <button data-id="{{animal.id}}" class="new-health-btn btn  btn btn-info ml-4 mt-2">Add Health Record</button>
+
+        <div class="card col-11 m-3 border border-3 rounded-5 border border-dark-subtle">
+          <div class="card-body">
         {{#each animal.Health as |health|}}
           <div>
-            vaccination: {{health.health_vaccination}}<br>
-            Neuter: {{health.health_neuter}}<br>
-            Disease: {{health.health_diseases}}<br>
-            <br>
+            <p>
+            Vaccination : {{health.health_vaccination}}
+            </p>
+            <p>
+            Fixed : {{health.health_neuter}}
+            </p>
+            <p>
+            Disease : {{health.health_diseases}}
+            </p>
           </div>
+        </div>
+      </div>
         {{/each}}
       </div>
 
       {{!-- Diet Tab --}}
       <div class="tab-pane fade show" id="diet-{{animal.id}}" role="tabpanel" aria-labelledby="diet-tab">
         
-        <button data-id="{{animal.id}}" class="new-diet-btn">Add Diet record</button>
+        <button data-id="{{animal.id}}" class="new-diet-btn   btn btn-info ml-4 mt-2">Add Diet record</button>
+        <div class="card col-11 m-3 border border-3 rounded-5 border border-dark-subtle">
+          <div class="card-body">
 
         {{#each animal.Diets as |diet|}}
-        {{!-- add bootstrap class for card --}}
-          <div >
-            Amount of Food: {{diet.food_amount}}<br>
-            Favorite Food: {{diet.food_favorite}}<br>
-            Allergies: {{diet.food_allergies}}<br>
-            <br>
+          <div>
+            <p>
+            Cups of food per day : {{diet.food_amount}}
+            </p>
+            <p>
+            Favorite Food : {{diet.food_favorite}}
+            </p>
+            <p>
+            Allergies : {{diet.food_allergies}}
+            </p>            
           </div>
+        </div>
+
+      </div>
         {{/each}}
       </div>
 
       {{!-- Activity Tab --}}
-       <div class="tab-pane fade show" id="activity-{{animal.id}}" role="tabpanel" aria-labelledby="activity-tab">
-        <button data-id="{{animal.id}}" class="new-activity-btn">Add activity record</button>
+      <div class="tab-pane fade show" id="activity-{{animal.id}}" role="tabpanel" aria-labelledby="activity-tab">
+        <button data-id="{{animal.id}}" class="new-activity-btn  btn btn-info ml-4 mt-2">Add activity record</button>
+        <div class="card col-11 m-3 border border-3 rounded-5 border border-dark-subtle">
+          <div class="card-body">
 
         {{#each animal.Activities as |activity|}}
-        <p>hello</p>
+
           <div>
-            Activity: {{activity.active_minutes_day}}<br>
-            Toy: {{activity.favorite_toy}}<br>
-            Sleep: {{activity.avg_sleep_day}}<br>
-            <br>
+            <p>
+            Active minutes per day : {{activity.active_minutes_day}}
+            </p>
+            <p>
+            Favorite Toy: {{activity.favorite_toy}}
+            </p>
+            <p>
+            Hours sleep per night: {{activity.avg_sleep_day}}
+            </p>          
+          </div>
+        </div>
+
           </div>
         {{/each}}
       </div>
