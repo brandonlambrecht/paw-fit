@@ -57,7 +57,7 @@ const HandleHealthForm = async (event) => {
             return;
     }
 
-    // document.location.replace('/dashboard');
+    document.location.reload();
     } catch(err) {
         console.log(err);
         // showError(healthForm, 'A login error has ocurred')
