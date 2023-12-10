@@ -14,7 +14,8 @@ display: none;
     display: none;
 }
 
-.new-activity-btn {
+
+/* .new-activity-btn {
     margin-top: 10px;
 }
 
@@ -24,5 +25,11 @@ display: none;
 
 .new-health-btn {
     margin-top: 10px;
-}
+} */
+
+p {
+    font-family: 'Lato', sans-serif; 
+    font-family: 'Merriweather', serif;
+} 
+
 
