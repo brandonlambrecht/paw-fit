@@ -6,11 +6,11 @@
 
 
 {{!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@fat">Open modal for @fat</button> --}}
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap">Open modal for @getbootstrap</button>
+{{!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap">Open modal for @getbootstrap</button> --}}
 
 
 {{!-- HEALTH Modal --}}
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+{{!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -32,34 +32,34 @@
             </select><br>
 
             <label for="disease" class="col-form-label">List any illness or disease</label><br>
-            <input type="text" class="form-control" id="disease" name="disease"><br>
+            <input type="text" class="form-control" id="disease" name="disease"><br> --}}
 
             {{!-- <label for="amount" class="col-form-label">Recipient:</label>
             <input type="text" class="form-control" id="amount"> --}}
-          </div>
-          <div class="mb-3">
+          {{!-- </div>
+          <div class="mb-3"> --}}
             {{!-- <label for="message-text" class="col-form-label">Message:</label>
             <textarea class="form-control" id="message-text"></textarea> --}}
-          </div>
+          {{!-- </div>
 
                 <div class="modal-footer">
           <input type="submit" class="btn btn-primary" value="Submit">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
       </div>
         </form>
-      </div>
+      </div> --}}
       {{!-- <div class="modal-footer">
           <input type="submit" class="btn btn-primary" value="Submit">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
       </div> --}}
-    </div>
+    {{!-- </div>
   </div>
-</div>
+</div> --}}
 
 
 
 {{!-- DIET Modal --}}
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+{{!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -80,29 +80,29 @@
             <input type="text" class="form-control" id="favorite" name="favorite"><br>
 
             <label for="allergies" class="col-form-label" >List any food allergies </label><br>
-            <input type="text" class="form-control" id="allergies" name="allergies"><br>
+            <input type="text" class="form-control" id="allergies" name="allergies"><br> --}}
 
             {{!-- <label for="amount" class="col-form-label">Recipient:</label>
             <input type="text" class="form-control" id="amount"> --}}
-          </div>
-          <div class="mb-3">
+          {{!-- </div>
+          <div class="mb-3"> --}}
             {{!-- <label for="message-text" class="col-form-label">Message:</label>
             <textarea class="form-control" id="message-text"></textarea> --}}
-          </div>
+          {{!-- </div> --}}
 
-                <div class="modal-footer">
+                {{!-- <div class="modal-footer">
           <input type="submit" class="btn btn-primary" value="Submit">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
       </div>
         </form>
-      </div>
+      </div> --}}
       {{!-- <div class="modal-footer">
           <input type="submit" class="btn btn-primary" value="Submit">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
       </div> --}}
-    </div>
+    {{!-- </div>
   </div>
-</div>
+</div> --}}
 
 
 
@@ -112,7 +112,7 @@
 
 
 {{!-- Diet Form --}}
-{{!-- <form class="diet-form">
+<form class="diet-form">
   <label for="amount">Cups of food consumed per day </label><br>
   <input type="number" step="0.5" min="0" id="amount" name="amount"><br>
 
@@ -124,10 +124,10 @@
 
   <input type="submit" value="Submit">
 
-</form> --}}
+</form>
 
 {{!-- Health Form --}}
-{{!-- <form class="health-form">
+<form class="health-form">
   <label for="health">List all vaccinations</label><br>
   <input type="text" id="health" name="health"><br>
 
@@ -142,8 +142,8 @@
   <label for="disease">List any illness or disease</label><br>
   <input type="text" id="disease" name="disease"><br>
 
-  <input type="submit" value="Submit"> --}}
-{{!-- </form> --}}
+  <input type="submit" value="Submit">
+</form>
 
 {{!-- Activity Form --}}
 <form class="activity-form">
@@ -215,8 +215,8 @@
       <div class="tab-pane fade show" id="health-{{animal.id}}" role="tabpanel" aria-labelledby="health-tab">
      
 
-
-        <button data-id="{{animal.id}}" type="button" class="new-health-btn btn btn btn-info ml-4 mt-2" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Add Health Record</button>
+        <button data-id="{{animal.id}}" class="new-health-btn  btn btn-info ml-4 mt-2">Add Health record</button>
+        {{!-- <button data-id="{{animal.id}}" type="button" class="new-health-btn btn btn btn-info ml-4 mt-2" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Add Health Record</button> --}}
 
         <div class="card col-11 m-3 border border-3 rounded-5 border border-dark-subtle">
           <div class="card-body">
@@ -239,8 +239,8 @@
 
       {{!-- Diet Tab --}}
       <div class="tab-pane fade show" id="diet-{{animal.id}}" role="tabpanel" aria-labelledby="diet-tab">
-        
-         <button type="button"  data-id="{{animal.id}}" class="new-diet-btn btn btn-info ml-4 mt-2" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@fat">Add Diet record</button>
+        <button data-id="{{animal.id}}" class="new-diet-btn  btn btn-info ml-4 mt-2">Add Diet record</button>
+        {{!-- <button type="button"  data-id="{{animal.id}}" class="new-diet-btn btn btn-info ml-4 mt-2" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@fat">Add Diet record</button> --}}
         <div class="card col-11 m-3 border border-3 rounded-5 border border-dark-subtle">
           <div class="card-body">
 
