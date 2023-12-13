@@ -16,7 +16,7 @@ User.hasMany(Animal, {
 
 Health.belongsTo(Animal, { 
     foreignKey: 'animal_id',
-    onDelete: 'CASCADE',
+    // onDelete: 'CASCADE',
 });
 
 Animal.hasMany(Health, {

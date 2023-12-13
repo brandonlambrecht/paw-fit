@@ -4,6 +4,8 @@ const petForm = document.querySelector(".pet-form");
 const removePet = document.querySelectorAll(".remove-animal-btn");
 const updatePetArr = document.querySelectorAll('.update-animals-btn');
 
+const newPetModalBtn = document.querySelector('#new-pet-modal');
+
 
 const petNameEl = document.querySelector('#pname')
 const animalTypeEl = document.querySelector('#type')
@@ -31,8 +33,14 @@ function openUpdateForm(event) {
     const { pet_name, animal_type, pet_age, pet_gender, pet_color, pet_weight, pet_breed, id } = animalData;
     
     animalIdForUpdate = id;
+    
     petNameEl.value = pet_name;
     animalTypeEl.value = animal_type;
+    petAgeEl.value = pet_age;
+    petGenderEl.value = pet_gender;
+    petColorEl.value = pet_color;
+    petWeightEl.value = pet_weight;
+    petBreedEl.value = pet_breed;
 
     addPetBtn();
 };
@@ -50,8 +58,8 @@ const HandlePetForm = async (event) => {
     const pet_breed = document.querySelector('#breed').value.trim();
 
     if (!pet_name || !animal_type || !pet_age || !pet_gender || !pet_color || !pet_weight || !pet_breed) {
-    showError(loginFormEl, "Please provide a name,type,gender,color,weight, and breed.")
-    return;
+        // showError(loginFormEl, "Please provide a name,type,gender,color,weight, and breed.")
+        return;
     }
 
     const bodyObj = {
@@ -70,7 +78,7 @@ const HandlePetForm = async (event) => {
         
         if(animalIdForUpdate) {
             // fetch
-            response = await fetch(`/api/animals/`, {
+            response = await fetch(`/api/animals/${animalIdForUpdate}`, {
                 method: 'PUT',
                 body: JSON.stringify(bodyObj),
                 headers: { 'Content-Type': 'application/json' },
@@ -89,15 +97,15 @@ const HandlePetForm = async (event) => {
             const res = await response.json();
             console.log(res);
             const errorMsg = res.message;
-            showError(petForm, errorMsg);
+            // showError(petForm, errorMsg);
             return;
         }
 
         animalIdForUpdate = '';
         document.location.replace('/dashboard');
     } catch (err) {
-    console.log(err);
-    showError(petForm, "A login error has ocurred.")
+        console.log(err);
+        // showError(petForm, "A login error has ocurred.")
     }
 };
 
@@ -136,3 +144,5 @@ updatePetArr.forEach((button) => {
 
 // removePet.addEventListener('click', deletePetForm);
 petForm.addEventListener('submit', HandlePetForm);
+
+newPetModalBtn.addEventListener('click', HandlePetForm)
