@@ -17,4 +17,25 @@ router.post('/', async (req, res) => {
     }
 });
 
+router.delete('/:id', async(req, res) => {
+    try {
+        if (req.session.user_id) {
+            const healthData = await Health.destroy({
+                where: {
+                    id: req.params.id
+                },
+            });
+            if (!healthData) {
+                res.status(400).json({message: 'no Health record with this Id! '});
+                return;
+            }
+
+            res.status(200).json(healthData);
+        }
+    } catch(err) {
+        console.log(err);
+        res.status(400).json(err);
+    }
+})
+
 module.exports = router;

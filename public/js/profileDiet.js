@@ -2,6 +2,8 @@ const dietBtns = document.querySelectorAll('.new-diet-btn');
 const newDiet = document.querySelector('.new-diet');
 const dietForm = document.querySelector('.diet-form');
 
+const modalDietFormBtn = document.querySelector('#Diet-modal');
+
 let currentDietId = '';
 
 dietBtns.forEach((dietBtn) => {
@@ -60,3 +62,5 @@ const HandleDietForm = async (event) => {
 
 
 dietForm.addEventListener('submit', HandleDietForm);
+
+modalDietFormBtn.addEventListener('click', HandleDietForm);

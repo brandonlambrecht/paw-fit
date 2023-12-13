@@ -1,6 +1,9 @@
 const healthBtns = document.querySelectorAll('.new-health-btn');
 const healthNew = document.querySelector('.new-health');
 const healthForm = document.querySelector('.health-form');
+const removeHealthBtn = document.querySelectorAll('.remove-health-btn')
+
+const modalHealthFormBtn = document.querySelector('#modal-submit');
 
 let currentAnimalId = '';
 
@@ -64,4 +67,34 @@ const HandleHealthForm = async (event) => {
     }
 };
 
+const deleteHealthForm = async(event) => {
+    event.preventDefault();
+
+    const health_id = event.target.getAttribute('data-id');
+
+    try {
+    const response = await fetch(`/api/animals/${health_id}`, {
+        method: 'delete',
+        headers: { 'content-type': 'application/json'},
+    });
+
+    if (!response.ok) {
+        const res = await response.json();
+        console.log(res);
+        return;
+    }
+
+    document.location.reload();
+    } catch(err) {
+        console.log(err);
+    } 
+}
+
+removeHealthBtn.forEach((button) => {
+    button.addEventListener('click', deleteHealthForm)
+});
+
+
 healthForm.addEventListener('submit', HandleHealthForm);
+
+modalHealthFormBtn.addEventListener('click', HandleHealthForm);

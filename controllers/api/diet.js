@@ -17,4 +17,13 @@ router.post('/', async (req, res) => {
     }
 });
 
+router.delete('/:id', async(req, res) => {
+    try {
+        
+    } catch(err) {
+        console.log(err);
+        res.status(400).json(err);
+    }
+})
+
 module.exports = router;

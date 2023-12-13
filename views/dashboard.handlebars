@@ -55,17 +55,23 @@
           <h5 class="card-title">
             {{animal.pet_name}}
           </h5>
-          <p>  
-            Age : {{animal.pet_age}}
+          <p>
+            Type : {{animal.animal_type}}
           </p>
           <p>
-            Type : {{animal.animal_type}}          
+            Gender : {{animal.pet_gender}}
           </p>
           <p>
-            Gender : {{animal.pet_gender}}          
+            Age : {{animal.pet_age}} years old
           </p>
           <p>
-            Breed : {{animal.pet_breed}}          
+            Color : {{animal.pet_color}}
+          </p>
+          <p>
+            Weight : {{animal.pet_weight}} Ib
+          </p>
+          <p>
+            Breed : {{animal.pet_breed}}
           </p>
           <button data-id="{{animal.id}}" class="remove-animal-btn btn btn-danger">Remove Animal</button>
           <button data-animal="{{toJsonString animal}}" class="btn btn-danger update-animals-btn">Update Animal</button>

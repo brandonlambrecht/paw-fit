@@ -6,11 +6,11 @@
 
 
 {{!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@fat">Open modal for @fat</button> --}}
-{{!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap">Open modal for @getbootstrap</button> --}}
+{{!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#activity-modal" data-bs-whatever="@getbootstrap">Add Activity Record</button> --}}
 
 
 {{!-- HEALTH Modal --}}
-{{!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="health-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -32,34 +32,22 @@
             </select><br>
 
             <label for="disease" class="col-form-label">List any illness or disease</label><br>
-            <input type="text" class="form-control" id="disease" name="disease"><br> --}}
-
-            {{!-- <label for="amount" class="col-form-label">Recipient:</label>
-            <input type="text" class="form-control" id="amount"> --}}
-          {{!-- </div>
-          <div class="mb-3"> --}}
-            {{!-- <label for="message-text" class="col-form-label">Message:</label>
-            <textarea class="form-control" id="message-text"></textarea> --}}
-          {{!-- </div>
-
-                <div class="modal-footer">
-          <input type="submit" class="btn btn-primary" value="Submit">
+            <input type="text" class="form-control" id="disease" name="disease"><br>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-primary" value="Submit" id="modal-submit">Submit</button>
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
       </div>
-        </form>
-      </div> --}}
-      {{!-- <div class="modal-footer">
-          <input type="submit" class="btn btn-primary" value="Submit">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-      </div> --}}
-    {{!-- </div>
+    </div>
   </div>
-</div> --}}
+</div>
 
 
 
 {{!-- DIET Modal --}}
-{{!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="diet-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -80,30 +68,53 @@
             <input type="text" class="form-control" id="favorite" name="favorite"><br>
 
             <label for="allergies" class="col-form-label" >List any food allergies </label><br>
-            <input type="text" class="form-control" id="allergies" name="allergies"><br> --}}
+            <input type="text" class="form-control" id="allergies" name="allergies"><br> 
 
-            {{!-- <label for="amount" class="col-form-label">Recipient:</label>
-            <input type="text" class="form-control" id="amount"> --}}
-          {{!-- </div>
-          <div class="mb-3"> --}}
-            {{!-- <label for="message-text" class="col-form-label">Message:</label>
-            <textarea class="form-control" id="message-text"></textarea> --}}
-          {{!-- </div> --}}
+          </div>
 
-                {{!-- <div class="modal-footer">
-          <input type="submit" class="btn btn-primary" value="Submit">
+        </form>
+      </div>
+      <div class="modal-footer">
+          <button type="submit" class="btn btn-primary" value="Submit" id="Diet-modal"> Submit</button>
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
       </div>
-        </form>
-      </div> --}}
-      {{!-- <div class="modal-footer">
-          <input type="submit" class="btn btn-primary" value="Submit">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-      </div> --}}
-    {{!-- </div>
+    </div>
   </div>
-</div> --}}
+</div>
 
+
+{{!-- Activity modal --}}
+<div class="modal fade" id="activity-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">New message</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="activity-form mb-3">
+
+            <label for="active" class="col-form-label" >Average minutes activity per day</label><br>
+            <input type="number" class="form-control" id="active" name="active"><br>
+
+            <label for="sleep" class="col-form-label" >Average hours sleep per day</label><br>
+            <input type="number" class="form-control" id="sleep" name="sleep"><br>
+
+            <label for="toy" class="col-form-label">Favorite toy </label><br>
+            <input type="text" class="form-control" id="toy" name="toy"><br>
+
+          </div>
+
+        </form>
+      </div>
+      <div class="modal-footer">
+          <button type="submit" class="btn btn-primary" value="Submit" id="Activity-modal"> Submit</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 
 
@@ -112,7 +123,7 @@
 
 
 {{!-- Diet Form --}}
-<form class="diet-form">
+{{!-- <form class="diet-form">
   <label for="amount">Cups of food consumed per day </label><br>
   <input type="number" step="0.5" min="0" id="amount" name="amount"><br>
 
@@ -124,10 +135,10 @@
 
   <input type="submit" value="Submit">
 
-</form>
+</form> --}}
 
 {{!-- Health Form --}}
-<form class="health-form">
+{{!-- <form class="health-form">
   <label for="health">List all vaccinations</label><br>
   <input type="text" id="health" name="health"><br>
 
@@ -143,10 +154,10 @@
   <input type="text" id="disease" name="disease"><br>
 
   <input type="submit" value="Submit">
-</form>
+</form> --}}
 
 {{!-- Activity Form --}}
-<form class="activity-form">
+{{!-- <form class="activity-form">
   <label for="active">Average minutes activity per day</label><br>
   <input type="number" id="active" name="active"><br>
 
@@ -158,7 +169,7 @@
 
   <input type="submit" value="Submit">
 
-</form>
+</form> --}}
 
 <div>
   
@@ -196,13 +207,13 @@
             Gender : {{animal.pet_gender}}
             </p>
             <p>
-            Age : {{animal.pet_age}}
+            Age : {{animal.pet_age}} years old
             </p>
             <p>
             Color : {{animal.pet_color}}
             </p>
             <p>
-            Weight : {{animal.pet_weight}}
+            Weight : {{animal.pet_weight}} Ib
             </p>
             <p>
             Breed : {{animal.pet_breed}}
@@ -215,8 +226,8 @@
       <div class="tab-pane fade show" id="health-{{animal.id}}" role="tabpanel" aria-labelledby="health-tab">
      
 
-        <button data-id="{{animal.id}}" class="new-health-btn  btn btn-info ml-4 mt-2">Add Health record</button>
-        {{!-- <button data-id="{{animal.id}}" type="button" class="new-health-btn btn btn btn-info ml-4 mt-2" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Add Health Record</button> --}}
+        {{!-- <button data-id="{{animal.id}}" class="new-health-btn  btn btn-info ml-4 mt-2">Add Health record</button> --}}
+        <button data-id="{{animal.id}}" type="button" class="new-health-btn btn btn btn-info ml-4 mt-2" data-bs-toggle="modal" data-bs-target="#health-modal" data-bs-whatever="@mdo">Add Health Record</button>
 
         <div class="card col-11 m-3 border border-3 rounded-5 border border-dark-subtle">
           <div class="card-body">
@@ -231,6 +242,8 @@
             <p>
             Disease : {{health.health_diseases}}
             </p>
+            <button data-id="{{health.id}}" class="remove-health-btn btn btn-danger">Remove Health Record</button>
+
           </div>
         </div>
       </div>
@@ -239,8 +252,8 @@
 
       {{!-- Diet Tab --}}
       <div class="tab-pane fade show" id="diet-{{animal.id}}" role="tabpanel" aria-labelledby="diet-tab">
-        <button data-id="{{animal.id}}" class="new-diet-btn  btn btn-info ml-4 mt-2">Add Diet record</button>
-        {{!-- <button type="button"  data-id="{{animal.id}}" class="new-diet-btn btn btn-info ml-4 mt-2" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@fat">Add Diet record</button> --}}
+        {{!-- <button data-id="{{animal.id}}" class="new-diet-btn  btn btn-info ml-4 mt-2">Add Diet record</button> --}}
+        <button type="button"  data-id="{{animal.id}}" class="new-diet-btn btn btn-info ml-4 mt-2" data-bs-toggle="modal" data-bs-target="#diet-modal" data-bs-whatever="@fat">Add Diet record</button>
         <div class="card col-11 m-3 border border-3 rounded-5 border border-dark-subtle">
           <div class="card-body">
 
@@ -248,7 +261,7 @@
         {{#each animal.Diets as |diet|}}
           <div>
             <p>
-            Cups of food per day : {{diet.food_amount}}
+            Cups of food per day : {{diet.food_amount}} Oz
             </p>
             <p>
             Favorite Food : {{diet.food_favorite}}
@@ -266,7 +279,9 @@
       {{!-- Activity Tab --}}
 
       <div class="tab-pane fade show" id="activity-{{animal.id}}" role="tabpanel" aria-labelledby="activity-tab">
-        <button data-id="{{animal.id}}" class="new-activity-btn  btn btn-info ml-4 mt-2">Add activity record</button>
+        {{!-- <button data-id="{{animal.id}}" class="new-activity-btn  btn btn-info ml-4 mt-2">Add activity record</button> --}}
+        <button type="button" data-id="{{animal.id}}" class="new-activity-btn btn btn-info ml-4 mt-2" data-bs-toggle="modal" data-bs-target="#activity-modal" data-bs-whatever="@getbootstrap">Add Activity Record</button>
+
         <div class="card col-11 m-3 border border-3 rounded-5 border border-dark-subtle">
           <div class="card-body">
 
@@ -275,13 +290,13 @@
 
           <div>
             <p>
-            Active minutes per day : {{activity.active_minutes_day}}
+            Active minutes per day : {{activity.active_minutes_day}} minutes
             </p>
             <p>
             Favorite Toy: {{activity.favorite_toy}}
             </p>
             <p>
-            Hours sleep per night: {{activity.avg_sleep_day}}
+            Hours sleep per night: {{activity.avg_sleep_day}} hours
             </p>          
           </div>
         </div>

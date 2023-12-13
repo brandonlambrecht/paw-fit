@@ -2,6 +2,9 @@ const activityBtns = document.querySelectorAll(".new-activity-btn")
 const newActivity = document.querySelector(".new-activity")
 const activityForm = document.querySelector(".activity-form")
 
+
+const activityFormModalBtn = document.querySelector('#Activity-modal');
+
 let activityAnimalId = '';
 
 activityBtns.forEach((activityBtn) => {
@@ -57,3 +60,4 @@ const HandleActivityForm = async (event) => {
 };
 
 activityForm.addEventListener('submit', HandleActivityForm);
+activityFormModalBtn.addEventListener('click', HandleActivityForm);
