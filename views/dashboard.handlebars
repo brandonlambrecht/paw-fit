@@ -67,6 +67,8 @@
           <p>
             Breed : {{animal.pet_breed}}          
           </p>
+          <button data-id="{{animal.id}}" class="remove-animal-btn btn btn-danger">Remove Animal</button>
+          <button data-animal="{{toJsonString animal}}" class="btn btn-danger update-animals-btn">Update Animal</button>
         </div>
       </div>
     {{/each}}

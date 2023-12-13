@@ -7,7 +7,6 @@ const Health = require('./health')
 
 Animal.belongsTo(User, {
     foreignKey: 'user_id',
-    onDelete: 'CASCADE',
 });
 
 User.hasMany(Animal, {
@@ -17,6 +16,7 @@ User.hasMany(Animal, {
 
 Health.belongsTo(Animal, { 
     foreignKey: 'animal_id',
+    onDelete: 'CASCADE',
 });
 
 Animal.hasMany(Health, {
@@ -25,6 +25,7 @@ Animal.hasMany(Health, {
 
 Diet.belongsTo(Animal, {
     foreignKey: 'animal_id',
+    onDelete: 'CASCADE',
 });
 
 Animal.hasMany(Diet, {
@@ -33,6 +34,7 @@ Animal.hasMany(Diet, {
 
 Activity.belongsTo(Animal, {
     foreignKey: 'animal_id',
+    onDelete: 'CASCADE',
 });
 
 Animal.hasMany(Activity, {
