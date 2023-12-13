@@ -1,7 +1,20 @@
-const petBtn = document.querySelector(".new-pet-btn")
-const newPet = document.querySelector(".new-pet")
-const petForm = document.querySelector(".pet-form")
+const petBtn = document.querySelector(".new-pet-btn");
+const newPet = document.querySelector(".new-pet");
+const petForm = document.querySelector(".pet-form");
+const removePet = document.querySelectorAll(".remove-animal-btn");
+const updatePetArr = document.querySelectorAll('.update-animals-btn');
 
+
+const petNameEl = document.querySelector('#pname')
+const animalTypeEl = document.querySelector('#type')
+const petAgeEl = document.querySelector('#age')
+const petGenderEl = document.querySelector('#gender')
+const petColorEl = document.querySelector('#color')
+const petWeightEl = document.querySelector('#weight')
+const petBreedEl = document.querySelector('#breed')
+
+
+let animalIdForUpdate = '';
 
 petBtn.addEventListener('click', addPetBtn)
 
@@ -11,6 +24,18 @@ function addPetBtn() {
     petForm.style.display = "block"
 
 }
+
+function openUpdateForm(event) {
+    const animalData = JSON.parse(event.target.getAttribute('data-animal'));
+
+    const { pet_name, animal_type, pet_age, pet_gender, pet_color, pet_weight, pet_breed, id } = animalData;
+    
+    animalIdForUpdate = id;
+    petNameEl.value = pet_name;
+    animalTypeEl.value = animal_type;
+
+    addPetBtn();
+};
 
 const HandlePetForm = async (event) => {
     event.preventDefault();
@@ -30,35 +55,84 @@ const HandlePetForm = async (event) => {
     }
 
     const bodyObj = {
-    pet_name,
-    animal_type,
-    pet_age,
-    pet_gender,
-    pet_color,
-    pet_weight,
-    pet_breed
+        pet_name,
+        animal_type,
+        pet_age,
+        pet_gender,
+        pet_color,
+        pet_weight,
+        pet_breed
     }
 
     try {
-    const response = await fetch('/api/animals', {
-        method: 'POST',
-        body: JSON.stringify(bodyObj),
-        headers: { 'Content-Type': 'application/json' },
-    });
 
-    if (!response.ok) {
-        const res = await response.json();
-        console.log(res);
-        const errorMsg = res.message;
-        showError(petForm, errorMsg);
-        return;
-    }
+        let response;
+        
+        if(animalIdForUpdate) {
+            // fetch
+            response = await fetch(`/api/animals/`, {
+                method: 'PUT',
+                body: JSON.stringify(bodyObj),
+                headers: { 'Content-Type': 'application/json' },
+            });
 
-    document.location.replace('/dashboard');
+        } else {
+            response = await fetch('/api/animals', {
+                method: 'POST',
+                body: JSON.stringify(bodyObj),
+                headers: { 'Content-Type': 'application/json' },
+            });
+        }
+
+
+        if (!response.ok) {
+            const res = await response.json();
+            console.log(res);
+            const errorMsg = res.message;
+            showError(petForm, errorMsg);
+            return;
+        }
+
+        animalIdForUpdate = '';
+        document.location.replace('/dashboard');
     } catch (err) {
     console.log(err);
     showError(petForm, "A login error has ocurred.")
     }
 };
 
+const deletePetForm = async (event) => {
+    event.preventDefault();
+
+    const animal_id = event.target.getAttribute('data-id');
+
+    try {
+    const response = await fetch(`/api/animals/${animal_id}`, {
+        method: 'delete',
+        headers: { 'content-type': 'application/json' },
+    });
+
+    if (!response.ok) {
+        const res = await response.json();
+        console.log(res);
+        const errorMsg = res.message;
+        return;
+    }
+
+    document.location.reload();
+    }catch (err) {
+        console.log(err);
+
+    }
+}
+
+removePet.forEach((button) => {
+    button.addEventListener("click", deletePetForm);
+});
+
+updatePetArr.forEach((button) => {
+    button.addEventListener("click", openUpdateForm);
+});
+
+// removePet.addEventListener('click', deletePetForm);
 petForm.addEventListener('submit', HandlePetForm);
