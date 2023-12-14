@@ -41,7 +41,6 @@ Animal.hasMany(Activity, {
     foreignKey: 'animal_id'
 });
 
-// Write Table relationships here
 
 module.exports = { 
     User,

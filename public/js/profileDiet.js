@@ -13,7 +13,6 @@ dietBtns.forEach((dietBtn) => {
 function addDietBtn(event) {
     currentDietId = event.target.getAttribute('data-id');
     console.log(currentDietId);
-    // newDiet.style.display = 'none';
     dietForm.style.display = 'block';
 }
 
