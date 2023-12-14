@@ -1,5 +1,4 @@
 const router = require('express').Router();
-const { Category } = require('../../../../challenges/Internet-retail/Develop/models');
 const { Animal } = require('../../models');
 
 
