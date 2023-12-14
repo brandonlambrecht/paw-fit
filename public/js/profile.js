@@ -15,7 +15,6 @@ healthBtns.forEach((healthBtn) => {
 function addHealthBtn (event) {
     currentAnimalId = event.target.getAttribute('data-id');
     console.log(currentAnimalId);
-    // healthNew.style.display = 'none';
     healthForm.style.display = 'block';
 }
 
@@ -30,7 +29,6 @@ const HandleHealthForm = async (event) => {
 
 
     if (!health_vaccination || !health_neuter || !health_diseases) {
-    // showError(loginFormEl, 'Please fill in the information')
         console.log('hit')
         return;
     }
@@ -56,14 +54,12 @@ const HandleHealthForm = async (event) => {
             const res = await response.json();
             console.log(res);
             const errorMsg = res.message;
-            // showError(healthForm, errorMsg);
             return;
     }
 
     document.location.reload();
     } catch(err) {
         console.log(err);
-        // showError(healthForm, 'A login error has ocurred')
     }
 };
 

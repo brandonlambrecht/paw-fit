@@ -48,5 +48,8 @@ Below you find a snapshot of the profile page and a deployment link
 
 Deployment Link :
 
+Dashboard page displays a snapshot of pets information
+Image![Dashboard](./public/images/dashboard-page.png)
+
 Profile page displaying general health, diet, and activity information
-Image![Profile](./assets/images/(add screenshot))
+Image![Profile](./public/images/profile-page.png)

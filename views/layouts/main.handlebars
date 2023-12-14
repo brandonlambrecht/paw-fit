@@ -34,12 +34,11 @@
                   <a class="nav-link" href="/profile">Profile</a>
                 </li> 
                 <li class="nav-item">
-                  {{!-- <a class="nav-link" href="./calendar.handlebars">View Calendar</a> --}}
                   <a class="nav-link" href="/calendar">View Calendar</a>
                 </li>
                 {{#if logged_in}}
                 <li class="nav-item" id="logout">
-                  <a class="nav-link">
+                  <a class="nav-link" href="/logout">
                     Logout
 
                   </a>
@@ -49,23 +48,13 @@
             </div>
           </div>
         </nav>
-        {{!-- <nav>
-          <!-- Conditionally render login or logout links -->
-          {{#if logged_in}}
-            <a href='/dashboard'>Dashboard</a>
-
-            <a href='/profile'>Profile</a>
-
-            <button class='' id='logout'>logout</button>
-          {{else}}
-            <a href='/login'>Login or Sign-up</a>
-          {{/if}}
-        </nav> --}}
       </header>
       <main class='container mt-4'>
+
         <!-- Render the sub layout -->
         {{{body}}}
       </main>
+      
       <footer>
 
       </footer>
