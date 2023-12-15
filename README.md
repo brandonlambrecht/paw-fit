@@ -46,7 +46,7 @@ To use the application type the following into the terminal
 
 Below you find a snapshot of the profile page and a deployment link
 
-Deployment Link :
+Deployment Link : https://thawing-bastion-63318-3c68bfecd820.herokuapp.com/
 
 Dashboard page displays a snapshot of pets information
 Image![Dashboard](./public/images/dashboard-page.png)
